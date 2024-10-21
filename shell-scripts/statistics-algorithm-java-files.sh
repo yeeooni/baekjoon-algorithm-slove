@@ -16,10 +16,13 @@ for i in "${!PERIODS[@]}"; do
 
     COUNT=0
     for FILE in $JAVA_FILES; do
-        CREATION_DATE=$(git log --diff-filter=A --follow --format="%ad" --date=short -- "$FILE" | head -n 1)
+        # 처음 파일을 커밋한 시점
+        CREATION_DATE=$(git log --diff-filter=A --follow --format="%ad" --date=short -- "$FILE" | tail -n 1)
+        echo "File: $FILE, Last Commit Date: $CREATION_DATE"
 
         # 커밋 날짜가 해당 기간 내에 있는지 확인
-        if [[ "$CREATION_DATE" > "$START_DATE" && ! "$CREATION_DATE" > "$END_DATE" ]]; then
+        # shellcheck disable=SC2122
+        if [[ "$CREATION_DATE" > "$START_DATE" &&  "$CREATION_DATE" <= "$END_DATE" ]]; then
             COUNT=$((COUNT+1))
         fi
     done

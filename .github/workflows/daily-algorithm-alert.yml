@@ -54,7 +54,7 @@ jobs:
               ;;
           esac
           
-          DAILY_MSG="알고리즘 풀기에 딱 좋은 밤이네요!\n오늘 날짜_(${{ env.TODAY }})_기준으로, ${{ env.DAILY_COUNT }}문제를 해결하셨어요!💪*\n📊통계를 보면, 이번 주에는 ${{ env.WEEKLY_COUNT }}문제, 이번 달에는 ${{ env.MONTHLY_COUNT }}문제를 푸셨습니다! ${MSG}\n자세한 내용을 보시려면 🔗<https://github.com/yeeooni/baekjoon-slove|여기>를 클릭하세요."
+          DAILY_MSG="알고리즘 풀기에 딱 좋은 밤이네요!\n오늘 날짜 _(${{ env.TODAY }})_ 기준으로, *${{ env.DAILY_COUNT }}문제를 해결하셨어요!*💪\n📊통계를 보면, 이번 주에는 ${{ env.WEEKLY_COUNT }}문제, 이번 달에는 ${{ env.MONTHLY_COUNT }}문제를 푸셨습니다! ${MSG}\n자세한 내용을 보시려면 🔗<https://github.com/yeeooni/baekjoon-slove|여기>를 클릭하세요."
           
           # SLACK channel to SEND
           curl -X POST --data-urlencode "payload={\"text\": \"${DAILY_MSG}\"}" ${{ secrets.SLACK_WEBHOOKS_URL }}

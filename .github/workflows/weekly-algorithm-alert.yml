@@ -23,7 +23,9 @@ jobs:
       - name: Slack Message Send & Statistics
         run: |
           COUNT_MSG="\n#--------------------------------#\n"
-          COUNT_MSG+="$(date +%Y)년 ${{ env.MONTH_AGO }}개월 전부터 현재까지 해결한 문제\n\n*총 ${{ env.JAVA_FILE_COUNT }}문제*, *훌륭합니다!*\n꾸준한 노력이 드디어 결실을 보고 있어요. 다음 달도 화이팅! 🎉🚀"
+          COUNT_MSG+="$(date +%Y)년 ${{ env.MONTH_AGO }}개월 전부터 현재까지 해결한 문제\n\n"
+          COUNT_MSG+="*총 ${{ env.JAVA_FILE_COUNT }}문제*, *훌륭합니다!*\n"
+          COUNT_MSG+="꾸준한 노력이 드디어 결실을 보고 있어요. 다음 달도 화이팅!🎉🚀"
           COUNT_MSG="\n#--------------------------------#\n"
           
           # SLACK channel to SEND

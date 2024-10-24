@@ -17,13 +17,22 @@ for i in "${!PERIODS[@]}"; do
     COUNT=0
     for FILE in $JAVA_FILES; do
         # 처음 파일을 커밋한 시점
-        CREATION_DATE=$(git log --diff-filter=A --follow --format="%ad" --date=short -- "$FILE" | tail -n 1)
-        echo "File: $FILE, Last Commit Date: $CREATION_DATE"
+        FIRST_COMMIT_DATE=$(git log --diff-filter=A --follow --format="%ad" --date=short -- "$FILE" | tail -n 1)
+        echo "File: $FILE, First Commit Date: $FIRST_COMMIT_DATE"
 
-        # 커밋 날짜가 해당 기간 내에 있는지 확인
-        if [[ "$CREATION_DATE" > "$START_DATE" &&  ! "$CREATION_DATE" > "$END_DATE" ]]; then
-            COUNT=$((COUNT+1))
-        fi
+        # 날짜를 타임스탬프로 변환하여 비교 (초 단위로)
+        START_TIMESTAMP=$(date -d "$START_DATE" +%s)
+        END_TIMESTAMP=$(date -d "$END_DATE" +%s)
+        COMMIT_TIMESTAMP=$(date -d "$FIRST_COMMIT_DATE" +%s)
+
+        # 첫 커밋 날짜가 지정된 기간 내에 있는지 확인
+       if [[ "$COMMIT_TIMESTAMP" -ge "$START_TIMESTAMP" && "$COMMIT_TIMESTAMP" -le "$END_TIMESTAMP" ]]; then
+          echo "$FILE was first committed within the period."
+          COUNT=$((COUNT+1))
+       else
+           echo "$FILE was not first committed within the period."
+       fi
+
     done
 
     COUNTS+=($COUNT)

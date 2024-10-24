@@ -19,6 +19,7 @@ for i in "${!PERIODS[@]}"; do
         # 처음 파일을 커밋한 시점
         FIRST_COMMIT_DATE=$(git log --diff-filter=A --follow --format="%ad" --date=short -- "$FILE" | tail -n 1)
         echo "File: $FILE, First Commit Date: $FIRST_COMMIT_DATE"
+        echo "Commit Timestamp: $COMMIT_TIMESTAMP, Start: $START_TIMESTAMP, End: $END_TIMESTAMP"
 
         # 날짜를 타임스탬프로 변환하여 비교 (초 단위로)
         START_TIMESTAMP=$(date -d "$START_DATE" +%s)

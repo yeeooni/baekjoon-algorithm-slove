@@ -18,8 +18,10 @@ jobs:
       - name: Print Current time in workflow
         run: date
 
-      - name: checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # 전체 Git 히스토리를 가져옵니다.
 
       - name: POST algorithm repository daily alert to SLACK
         run: |

@@ -43,21 +43,21 @@ jobs:
           
           case ${{ env.DAILY_COUNT}} in
             0)
-              MSG="더 분발해야 할 것 같아요!😂"
+              MSG="하나도 풀지 않으셨네요! 이러다간 큰일나요! 더 분발해야 할 것 같아요!😂"
               ;;
             2 | 3)
-              MSG="지금까지 잘하고 계시네요. 화이팅입니다!😘"
+              MSG="${{ env.DAILY_COUNT }}문제를 해결하셨어요!💪 지금까지 잘하고 계시네요. 화이팅입니다!😘"
               ;;
             4)
-              MSG="목표를 거의 달성하셨어요! 대단합니다.👏🏽"
+              MSG="${{ env.DAILY_COUNT }}문제를 해결하셨네요!🔥🔥🔥 목표를 거의 달성하셨어요! 대단합니다.👏🏽"
               ;;
             *)
-              MSG="4 문제 이상 푸셔서, 존경스럽습니다.🎉"
+              MSG="${{ env.DAILY_COUNT }}문제를 해결하셨다니! 너무 존경스럽습니다.🎉"
               ;;
           esac
           
           DAILY_MSG="알고리즘 풀기에 딱 좋은 밤이네요!\n"
-          DAILY_MSG+="오늘 날짜 _(${{ env.TODAY }})_ 기준으로, *${{ env.DAILY_COUNT }}문제를 해결하셨어요!*💪 *${MSG}*\n"
+          DAILY_MSG+="오늘 날짜 _(${{ env.TODAY }})_ 기준으로, *${MSG}*\n"
           DAILY_MSG+="📊통계를 보면, 이번 주에는 ${{ env.WEEKLY_COUNT }}문제, 이번 달에는 ${{ env.MONTHLY_COUNT }}문제를 푸셨습니다!\n"
           DAILY_MSG+="자세한 내용을 보시려면 🔗<https://github.com/yeeooni/baekjoon-slove|여기>를 클릭하세요."
           

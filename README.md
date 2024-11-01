@@ -30,6 +30,10 @@
 
 - **algorithm**: 알고리즘(공부 정리)
 
+- 서브모듈을 활용하여 메인 저장소는 이 곳이 되고 그 다음 저장소는 vi-editor 가 되고 그 다음 서브 모듈은 exercise_book 이다.
+- **slove -> vi-editor -> exercise_book**
+- ![디렉터리-구조](images-2.png "현재-저장소의-디렉터리-구조")
+
 ### 👨‍💻구현 방식
 1. 백준 알고리즘에서 제시한 입력 데이터를 input.txt 입력
 2. 코딩

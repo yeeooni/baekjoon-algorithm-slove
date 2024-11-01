@@ -1,0 +1,3 @@
+[submodule "vi-editor"]
+	path = vi-editor
+	url = https://github.com/yeeooni/vi-editor.git

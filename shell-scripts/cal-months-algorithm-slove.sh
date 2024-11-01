@@ -16,7 +16,7 @@ FIRST_COMMIT_COUNT=$(git ls-files "*.java" | while read file; do
     FIRST_COMMIT_DATE=$(git log --follow --diff-filter=A --format="%cs" -- "$file" | tail -n 1)
 
     # 최초 커밋 날짜가 6개월 이내라면 해당 파일을 출력
-    if [[ "$FIRST_COMMIT_DATE" -g "$START_DATE" && "$FIRST_COMMIT_DATE" -le "$TODAY" ]]; then
+    if [[ "$FIRST_COMMIT_DATE" -gt "$START_DATE" && "$FIRST_COMMIT_DATE" -le "$TODAY" ]]; then
         echo "$file 최초 커밋 날짜: $FIRST_COMMIT_DATE"
     fi
 done | wc -l)

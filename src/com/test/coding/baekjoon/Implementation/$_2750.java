@@ -15,7 +15,6 @@ import java.util.Arrays;
  * 정답율: 58%
  * 수행시간:164ms
 **/
-
 public class $_2750 {
 
     public static void main(String[] args) {

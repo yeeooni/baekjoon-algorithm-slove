@@ -1,12 +1,13 @@
-package com.test.coding.baekjoon.array;
+package com.test.coding.baekjoon.Implementation;
 
 import java.io.*;
 import java.util.Arrays;
 
 /**
  *
- * $_2750의 설명
- * 패키지: com.test.coding.baekjoon.array
+ * $_2750 의 설명
+ * 패키지: com.test.coding.baekjoon.Implementation
+ * 알고리즘 분류: 구현, 정렬
  * 문제: N개의 수가 주어졌을 때, 오름차순 정렬 프로그램
  * 입력: 첫째 줄 수의 개수 N (1 <= N <= 1000), 둘째 줄 N개의 줄에는 수가 주어짐.
  * 출력: 오름차순 결과를 한 줄에 하나씩 출력한다.
@@ -15,7 +16,6 @@ import java.util.Arrays;
  * 정답율: 58%
  * 수행시간:164ms
 **/
-
 public class $_2750 {
 
     public static void main(String[] args) {

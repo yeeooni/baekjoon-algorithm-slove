@@ -1,16 +1,17 @@
-package com.test.coding.baekjoon.array;
+package com.test.coding.baekjoon.math;
 
 import java.io.*;
 
 /**
  *
- * $_2587의 설명
- * 패키지: com.test.coding.baekjoon.array
+ * $_2587 의 설명
+ * 패키지: com.test.coding.baekjoon.math
+ * 알고리즘 분류: 수학
  * 문제: N줄이 존재할 때 어떤수 들의 평균값과 중앙값을 찾아라
  * 입력: 첫 째줄 부터 다섯줄 까지 하나씩 자연수가 존재함, 주어지는 자연수는 100보다 작은 10의 배수이다.
  * 출력: 첫 줄엔 평균, 둘째 줄엔 중앙값 출력
  * 주의사항:
- * 일시: 3/28/24
+ * 일시: 2024. 03. 28.
  * 정답율: 62%
  * 수행시간: 132ms
 **/

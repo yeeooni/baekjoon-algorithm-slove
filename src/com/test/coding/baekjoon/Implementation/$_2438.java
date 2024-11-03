@@ -1,11 +1,11 @@
-package com.test.coding.baekjoon.loop_statements;
+package com.test.coding.baekjoon.Implementation;
 
 import java.io.*;
 
 /**
  *
- * $_2438의 설명
- * 패키지: com.test.coding.baekjoon.loop_statements
+ * $_2438 의 설명
+ * 패키지: com.test.coding.baekjoon.Implementation
  * 알고리즘 분류: 구현
  * 문제: 첫째 줄에는 별 1개, 둘째 줄에는 별 2개, N번째 줄에는 별 N개를 찍는 문제
  * 입력: 첫째 줄에 N(1 ≤ N ≤ 100)이 주어진다.

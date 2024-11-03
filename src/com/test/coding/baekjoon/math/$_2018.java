@@ -1,11 +1,12 @@
-package com.test.coding.baekjoon.array;
+package com.test.coding.baekjoon.math;
 
 import java.io.*;
 
 /**
  *
- * $_2018의 설명
- * 패키지: com.test.coding.baekjoon.array
+ * $_2018 의 설명
+ * 패키지: com.test.coding.baekjoon.math
+ * 알고리즘 분류: 수학, 투포인터
  * 문제: 자연수 N은 몇 개의 연속된 자연수의 합으로 나타낼 수 있다.
  *      N의 범위는 1 <= N <= 10000000 이며, 몇 개의 연속된 자연수의 합으로 나타낼 수 있는지 가지수를 구하여라.
  * 입력: N

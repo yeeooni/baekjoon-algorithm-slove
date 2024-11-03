@@ -4,8 +4,8 @@ import java.io.*;
 
 /**
  *
- * $_2422 의 설명
- * 패키지: com.test.coding.baekjoon.Implementation;
+ * $_2442 의 설명
+ * 패키지: com.test.coding.baekjoon.Implementation
  * 알고리즘 분류: 구현
  * 문제: 첫째 줄에는 별 1개, 둘째 줄에는 별 3개, ..., N번째 줄에는 별 2×N-1개를 찍는 문제
  *      별은 가운데를 기준으로 대칭이어야 한다.
@@ -21,7 +21,7 @@ import java.io.*;
  * 정답율: 55.338%
  * 수행시간: 104ms
  **/
-public class $_2422 {
+public class $_2442 {
 
     final static char STAR = '*';
     //final static int COLUMN = 9;
@@ -42,11 +42,12 @@ public class $_2422 {
 
     static StringBuilder print(int n){
         StringBuilder sb = new StringBuilder();
+        int col = 2*n-1, mid = col / 2;
         for(int i = 0; i < n; i++){
-            for(int j = 0; j < 2*n-1; j++){
+            for(int j = 0; j < col; j++){
                 //2N - 1
-                if(j < ((2*n-1) / 2) - i) sb.append(" ");
-                else if(j > ((2*n-1) / 2) + i);
+                if(j < mid - i) sb.append(" ");
+                else if(j > mid + i);
                 else sb.append(STAR);
             }
             sb.append("\n");

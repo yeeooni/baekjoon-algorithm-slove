@@ -6,7 +6,7 @@ import java.io.*;
  *
  * $_13420 의 설명
  * 패키지: com.test.coding.baekjoon.math
- * 알고리즘 분류:
+ * 알고리즘 분류: 수학
  * 문제: 사칙연산은 덧셈, 뺄셈, 곱셈, 나눗셈으로 이루어져 있으며, 컴퓨터 프로그램에서 이를 표현하는 기호는 +, -, *, / 와 같다. 아래는 컴퓨터 프로그램에서 표현한 사칙 연산의 예제이다.
  *      3 * 2 = 6
  *      문제와 답이 주어졌을 때, 이를 계산하여 올바른 수식인지 계산하는 프로그램을 만들려고 한다. 만약 주어진 데이터가 3 * 2 = 6 이라면 정답으로, 3 * 2 = 7 이면 오답으로 채점을 하면 된다. 문제와 답이 주어졌을 때, 이를 채점하는 프로그램을 작성하시오.
@@ -24,37 +24,42 @@ public class $_13420 {
             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out))){
 
             int t = Integer.parseInt(br.readLine());
-            String[] contents;
-            long result = 0;
+            exec(t, br, bw);
 
-            for(int i = 0; i < t; i++){
-                contents = br.readLine().split(" ");
-
-                switch(contents[1]){
-                    case "+":
-                        result = Long.parseLong(contents[0]) + Long.parseLong(contents[2]);
-                        break;
-                    case "-":
-                        result = Long.parseLong(contents[0]) - Long.parseLong(contents[2]);
-                        break;
-                    case "*":
-                        result = Long.parseLong(contents[0]) * Long.parseLong(contents[2]);
-                        break;
-                    case "/":
-                        result = Long.parseLong(contents[0]) / Long.parseLong(contents[2]);
-                        break;
-                }
-
-                if(contents[4].equals(String.valueOf(result))) bw.write("correct");
-                else bw.write("wrong answer");
-
-                bw.newLine();
-            }
-
-            bw.flush();
         }catch (IOException e){
             e.printStackTrace();
         }
+    }
+
+    static void exec(int t, BufferedReader br, BufferedWriter bw) throws IOException {
+        String[] contents;
+        long result = 0;
+
+        for(int i = 0; i < t; i++){
+            contents = br.readLine().split(" ");
+
+            switch(contents[1]){
+                case "+":
+                    result = Long.parseLong(contents[0]) + Long.parseLong(contents[2]);
+                    break;
+                case "-":
+                    result = Long.parseLong(contents[0]) - Long.parseLong(contents[2]);
+                    break;
+                case "*":
+                    result = Long.parseLong(contents[0]) * Long.parseLong(contents[2]);
+                    break;
+                case "/":
+                    result = Long.parseLong(contents[0]) / Long.parseLong(contents[2]);
+                    break;
+            }
+
+            if(contents[4].equals(String.valueOf(result))) bw.write("correct");
+            else bw.write("wrong answer");
+
+            bw.newLine();
+        }
+
+        bw.flush();
     }
 
 }

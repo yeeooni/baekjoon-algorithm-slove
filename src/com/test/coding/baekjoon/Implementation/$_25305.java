@@ -1,4 +1,4 @@
-package com.test.coding.baekjoon.array;
+package com.test.coding.baekjoon.Implementation;
 
 import java.io.*;
 import java.util.Arrays;
@@ -6,17 +6,20 @@ import java.util.StringTokenizer;
 
 /**
  *
- * $_25305의 설명
- * 패키지: com.test.coding.baekjoon.array
- * 문제: 커트라인 점수를 구하라.
- * 입력: 첫 줄 N명, 공백 이후 상을 받는 사람 수 K명 둘째 줄 학생의 점수 x 공백 이후 주어짐, 커트라인 점수를 구하라.
- * 출력: 첫 줄 상을 받는 커트라인 점수를 출력해라.
+ * $_25305 의 설명
+ * 패키지: com.test.coding.baekjoon.Implementation
+ * 알고리즘 분류: 구현, 정렬
+ * 문제: 2022 연세대학교 미래캠퍼스 슬기로운 코딩생활에 $N$명의 학생들이 응시했다.
+ *      이들 중 점수가 가장 높은 $k$명은 상을 받을 것이다. 이 때, 상을 받는 커트라인이 몇 점인지 구하라.
+ *      커트라인이란 상을 받는 사람들 중 점수가 가장 가장 낮은 사람의 점수를 말한다.
+ * 입력: 첫째 줄에는 응시자의 수 $N$과 상을 받는 사람의 수 $k$가 공백을 사이에 두고 주어진다.
+ *      둘째 줄에는 각 학생의 점수 $x$가 공백을 사이에 두고 주어진다.
+ * 출력: 상을 받는 커트라인을 출력하라.
  * 주의사항: 선택정렬, 버블정렬을 사용하여 내림차순을 먼저 하는 것이 중요함.
- * 일시: 3/28/24
+ * 일시: 2024. 03. 28.
  * 정답율: 66%
  * 수행시간: 156ms
 **/
-
 public class $_25305 {
 
     public static void main(String[] args){

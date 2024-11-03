@@ -14,7 +14,7 @@ import java.io.*;
  * 주의사항:
  * 일시: 2024. 03. 15.
  * 정답율: 53%
- * 수행시간: 
+ * 수행시간: 108ms
 **/
 public class $_10809 {
 
@@ -27,7 +27,7 @@ public class $_10809 {
             char[] chars = new String(alpabet).toCharArray();
             String str = br.readLine();
 
-            for(Character c : chars){
+            for(char c : chars){
                 bw.write(str.indexOf(c) + " ");
             }
 

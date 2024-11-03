@@ -17,7 +17,7 @@ import java.io.*;
  * 주의사항:
  * 일시: 2024. 10. 15.
  * 정답율: 58%
- * 수행시간: 124ms
+ * 수행시간: 104ms
 **/
 public class $_5622 {
 
@@ -37,10 +37,10 @@ public class $_5622 {
             for(int i = 0; i < strings.length; i++){
                 strings[i] = ALPABET.substring(i * 3, (i * 3) + 3);
 
-                if(i == 5) //첫 번째 PQRS
-                    strings[i] = ALPABET.substring(i * 3, (i * 3) + 4);
-                else if(i == 7) //두 번째 WXYZ
-                    strings[i] = ALPABET.substring((i * 3) + 1);
+                //첫 번째 PQRS
+                if(i == 5) strings[i] = ALPABET.substring(i * 3, (i * 3) + 4);
+                //두 번째 WXYZ
+                else if(i == 7)  strings[i] = ALPABET.substring((i * 3) + 1);
             }
 
             //"ABC", "DEF", "GHI", "JKL", "MNO", "PQRS", "TUV", "WXYZ"
@@ -57,8 +57,8 @@ public class $_5622 {
             //출력된 시간
             bw.write(String.valueOf(time));
             bw.flush();
-        }catch (IOException ioe){
-            System.err.print(ioe.getMessage());
+        }catch (IOException e){
+            e.printStackTrace();
         }
     }
 

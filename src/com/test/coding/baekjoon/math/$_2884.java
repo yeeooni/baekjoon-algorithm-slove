@@ -1,4 +1,4 @@
-package com.test.coding.baekjoon.conditional_statements;
+package com.test.coding.baekjoon.math;
 
 import java.io.*;
 import java.util.StringTokenizer;
@@ -6,8 +6,8 @@ import java.util.StringTokenizer;
 /**
  *
  * $_2884 의 설명
- * 패키지: com.test.coding.baekjoon.condition
- * 알고리즘 분류:
+ * 패키지: com.test.coding.baekjoon.math
+ * 알고리즘 분류: 수학, 사칙연산
  * 문제: 상근이는 매일 아침 알람을 듣고 일어난다. 알람을 듣고 바로 일어나면 다행이겠지만, 항상 조금만 더 자려는 마음 때문에 매일 학교를 지각하고 있다.
  *      상근이는 모든 방법을 동원해보았지만, 조금만 더 자려는 마음은 그 어떤 것도 없앨 수가 없었다.
  *      이런 상근이를 불쌍하게 보던 창영이는 자신이 사용하는 방법을 추천해 주었다.
@@ -34,10 +34,10 @@ public class $_2884 {
 
             if(minute >= 45) {  //45분 이상이라면
                 minute -= 45;
-            } else if(hour == 0){   //45분 미만, 시간이 24시라면
+            }else if(hour == 0){   //45분 미만, 시간이 24시라면
                 hour = 23;
                 minute = (minute - 45) + 60;
-            } else { //45분 미만, 시간이 24시가 아니라면
+            }else { //45분 미만, 시간이 24시가 아니라면
                 hour -= 1;
                 minute = (minute - 45) + 60;
             }
@@ -45,8 +45,8 @@ public class $_2884 {
             bw.write(hour + " " + minute);
             bw.flush();
 
-        }catch(IOException ioe){
-            System.err.print(ioe.getMessage());
+        }catch(IOException e){
+            e.printStackTrace();
         }
     }
 

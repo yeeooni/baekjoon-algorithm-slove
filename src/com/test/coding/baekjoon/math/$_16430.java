@@ -30,6 +30,8 @@ public class $_16430 {
 
         //8/8 - 5/8 -> a-b/b
         print(p, q);
+
+        scanner.close();
     }
 
     static void print(int a, int b){

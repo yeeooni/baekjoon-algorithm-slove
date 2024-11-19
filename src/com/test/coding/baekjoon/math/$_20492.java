@@ -31,6 +31,8 @@ public class $_20492 {
         Scanner scanner = new Scanner(System.in);
         int l = scanner.nextInt();
         print(l);
+
+        scanner.close();
     }
 
     static void print(int n){

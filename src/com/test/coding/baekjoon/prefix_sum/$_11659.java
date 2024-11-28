@@ -24,28 +24,26 @@ public class $_11659 {
         try(BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out))){
 
-            StringTokenizer st = new StringTokenizer(br.readLine()); //N, S
+            StringTokenizer st = new StringTokenizer(br.readLine());
 
-            int N[] = new int[Integer.parseInt(st.nextToken()) + 1]; //배열
-            int S[] = new int[N.length];    //합배열
-            int start, end;
+            int n[] = new int[Integer.parseInt(st.nextToken()) + 1]; //원본 배열
+            int s[] = new int[n.length];                             //합배열
+            int x, y;
 
             count = Integer.parseInt(st.nextToken()); //연산횟수
+            st = new StringTokenizer(br.readLine());  //배열의 값
 
-            st = new StringTokenizer(br.readLine()); //배열의 값
-
-            for(int i = 1; i < N.length; i++){
-                N[i] = Integer.parseInt(st.nextToken());
-                S[i] = S[i-1] + N[i];
+            for(int i = 1; i < n.length; i++){
+                n[i] = Integer.parseInt(st.nextToken());
+                s[i] = s[i-1] + n[i];  //합배열 구하기
             }
 
             while(count != 0){
                 st = new StringTokenizer(br.readLine()); //시작, 종료 인덱스
-                start = Integer.parseInt(st.nextToken());
-                end = Integer.parseInt(st.nextToken());
+                x = Integer.parseInt(st.nextToken());
+                y = Integer.parseInt(st.nextToken());
                 count--;
-
-                bw.write(String.valueOf(S[end] - S[start - 1]) + "\n");
+                bw.write(s[y] - s[x - 1] + "\n");
             }
 
 //            System.out.println("기존 배열의 값은 : " + Arrays.toString(N));

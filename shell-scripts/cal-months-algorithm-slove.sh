@@ -7,13 +7,14 @@ TODAY=$(date +%Y-%m-%d)
 MONTHS_AGO=$1
 
 # 6개월 전부터 현재까지의 Java 파일 최초 커밋 수 카운트
-START_DATE=$(date -d "${MONTHS_AGO} months ago" +%Y-%m-%d)
-TODAY=$(date +%Y-%m-%d)
+START_DATE=$(date -d "6 months ago" "+%Y%m%d")
+TODAY=$(date "+%Y%m%d")
+
 
 # 최초 커밋 개수를 저장할 변수 초기화
-FIRST_COMMIT_COUNT=$(git ls-files "*.java" | while read file; do
+FIRST_COMMIT_COUNT=$(git ls-files "*.java" | while read -r file; do
     # 파일의 최초 커밋 날짜 조회
-    FIRST_COMMIT_DATE=$(git log --follow --diff-filter=A --format="%cs" -- "$file" | tail -n 1)
+    FIRST_COMMIT_DATE=$(git log --follow --diff-filter=A --format="%cs" -- "$file" | tail -n 1 | sed 's/-//g')
 
     # 최초 커밋 날짜가 6개월 이내라면 해당 파일을 출력
     if [[ "$FIRST_COMMIT_DATE" -gt "$START_DATE" && "$FIRST_COMMIT_DATE" -le "$TODAY" ]]; then

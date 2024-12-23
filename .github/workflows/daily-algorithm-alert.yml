@@ -2,7 +2,7 @@ name: daily-algorithm-alert
 
 on:
   schedule:
-    - cron: '0 11 * * *'   # Run daily at 8 PM
+    - cron: '0 11 * * 1,2,3,4,5'
     # - cron: '0 11 * * 1'   # Run weekly on Mondays at 8 PM
     # - cron: '0 11 1 * *'  # Run monthly on the 1st at 8 PM
 

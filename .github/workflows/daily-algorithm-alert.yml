@@ -5,6 +5,7 @@ on:
     - cron: '0 11 * * 1,2,3,4,5' # UTC(오전 11시) KST(UTC+9시간) -> 오후 8, 월-금 동작
     # - cron: '0 11 * * 1'   # Run weekly on Mondays at 8 PM
     # - cron: '0 11 1 * *'  # Run monthly on the 1st at 8 PM
+  workflow_dispatch:            # Actions 탭에서 수동으로도 즉시 실행/테스트 가능
 
 jobs:
   alert-build:
@@ -53,12 +54,7 @@ jobs:
             DAILY_MSG+="📊 *이번 주 누적*: ${{ env.WEEKLY_COUNT }}문제\n"
             DAILY_MSG+="📈 *이번 달 누적*: ${{ env.MONTHLY_COUNT }}문제\n"
             DAILY_MSG+="\n"
-            DAILY_MSG+="🔗 *상세 내역 보기*: <https://github.com/yeeooni/baekjoon-slove|깃허브 리포지토리 바로가기>"
+            DAILY_MSG+="🔗 *상세 내역 보기*: <https://github.com/yeeooni/baekjoon-algorithm-slove|깃허브 리포지토리 바로가기>"
           
           # SLACK channel to SEND
           curl -X POST --data-urlencode "payload={\"text\": \"${DAILY_MSG}\"}" ${{ secrets.SLACK_WEBHOOKS_URL }}
-          
-            
-          
-          
-          

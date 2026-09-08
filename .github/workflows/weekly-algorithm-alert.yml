@@ -2,7 +2,8 @@ name: weekly-algorithm-alert
 
 on:
   schedule:
-    - cron: '0 9 * * 5'   # Run weekly on Fridays at 8 PM
+    - cron: '0 9 * * 5'   # UTC 09:00 = KST 18:00, 매주 금요일 (주석은 "오후 8시"였지만 실제로는 오후 6시에 동작합니다)
+  workflow_dispatch:        # Actions 탭에서 수동으로도 즉시 실행/테스트 가능
 
 jobs:
   alert-build:
@@ -11,6 +12,8 @@ jobs:
     steps:
       - name: checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # 전체 Git 히스토리를 가져옵니다. (daily 워크플로우와 동일하게 적용 - 이게 없으면 최초 커밋일 조회가 실패해 통계가 부정확해집니다)
 
       - name: Set Timezone to Asia/Seoul
         run: sudo timedatectl set-timezone Asia/Seoul

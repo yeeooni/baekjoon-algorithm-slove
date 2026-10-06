@@ -2,7 +2,7 @@ name: daily-algorithm-alert
 
 on:
   schedule:
-    - cron: '0 11 * * 1,2,3,4,5' # UTC(오전 11시) KST(UTC+9시간) -> 오후 8, 월-금 동작
+    - cron: '17 11 * * 1,2,3,4,5' # UTC 11:17 = KST 20:17, 월-금 동작 (정각은 GitHub 스케줄이 몰려 지연/누락되기 쉬워 17분으로 비껴둠)
     # - cron: '0 11 * * 1'   # Run weekly on Mondays at 8 PM
     # - cron: '0 11 1 * *'  # Run monthly on the 1st at 8 PM
   workflow_dispatch:            # Actions 탭에서 수동으로도 즉시 실행/테스트 가능

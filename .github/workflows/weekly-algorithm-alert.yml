@@ -2,7 +2,7 @@ name: weekly-algorithm-alert
 
 on:
   schedule:
-    - cron: '0 9 * * 5'   # UTC 09:00 = KST 18:00, 매주 금요일 (주석은 "오후 8시"였지만 실제로는 오후 6시에 동작합니다)
+    - cron: '17 9 * * 5'   # UTC 09:17 = KST 18:17, 매주 금요일 (정각 혼잡을 피하려고 17분으로 비껴둠)
   workflow_dispatch:        # Actions 탭에서 수동으로도 즉시 실행/테스트 가능
 
 jobs:

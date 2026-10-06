@@ -77,8 +77,8 @@ GitHub Actions로 두 가지 알림을 자동 발송합니다. (`.github/workflo
 
 | 워크플로우 | 주기 | 내용 |
 |---|---|---|
-| `daily-algorithm-alert.yml` | 월~금, KST 오후 8시 | 어제 푼 문제 수 + 이번 주/이번 달 누적 |
-| `weekly-algorithm-alert.yml` | 매주 금요일, KST 오후 6시 | 최근 6개월 누적 통계 |
+| `daily-algorithm-alert.yml` | 월~금, KST 오후 8시 17분 | 어제 푼 문제 수 + 이번 주/이번 달 누적 |
+| `weekly-algorithm-alert.yml` | 매주 금요일, KST 오후 6시 17분 | 최근 6개월 누적 통계 |
 
 - 두 워크플로우 모두 `secrets.SLACK_WEBHOOKS_URL` (Incoming Webhook)로 메시지를 보냅니다. Slack 쪽에서 Webhook을 재발급했다면 저장소 Settings → Secrets and variables → Actions에서 값을 갱신해야 합니다.
 - **Actions 탭에서 `Run workflow` 버튼으로 수동 실행/테스트가 가능하도록 두 워크플로우에 `workflow_dispatch` 트리거를 추가했습니다.** 스케줄을 기다리지 않고 바로 알림이 오는지 확인할 수 있습니다.

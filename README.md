@@ -62,10 +62,7 @@ src/com/test/coding/
 └── bjpublic/javarithms/sort/  # 정렬 알고리즘 학습 (Bubble/Insertion/Merge/Selection)
 ```
 
-- 서브모듈을 활용하여 메인 저장소는 이 곳이 되고 그 다음 저장소는 vi-editor 가 되고 그 다음 서브 모듈은 exercise_book 이다.
-- **slove -> vi-editor -> exercise_book**
 - ![디렉터리-구조](images-2.png "현재-저장소의-디렉터리-구조")
-- ⚠️ `vi-editor`는 서브모듈이라 일반 `git clone`만으로는 빈 폴더로 보입니다. 내용까지 받으려면 `git clone --recurse-submodules` 또는 `git submodule update --init --recursive`가 필요합니다.
 
 ### 👨‍💻구현 방식
 1. 백준 알고리즘에서 제시한 입력 데이터를 input.txt 입력

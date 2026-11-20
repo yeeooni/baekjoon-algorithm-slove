@@ -13,13 +13,12 @@
 - 자료구조 공부 (Iterator, Map, Stream)
 - 깔끔한 주석 템플릿
 
-### 📊 현재 통계
-> 2026-09-08 기준 저장소를 직접 분석해서 산출한 값입니다. 커밋을 쌓을 때마다 달라지니 참고용으로만 봐주세요.
+### 📊 풀이 현황
+> 2026-09-08 기준 (커밋 191개, 2024-03-13 ~ 2025-07-14). 풀이를 추가하면 수치가 달라집니다.
 
-- 전체 커밋: **191개** (첫 커밋 2024-03-13 ~ 최근 커밋 2025-07-14)
-- 풀이한 자바 파일: **총 82개**
+총 **82개** (백준 74개 + 알고리즘 공부 8개)
 
-| 카테고리 | 경로 | 문제 수 |
+| 카테고리 | 경로 | 개수 |
 |---|---|---|
 | 수학 | `baekjoon/math` | 35 |
 | 구현 | `baekjoon/Implementation` | 32 |
@@ -29,23 +28,23 @@
 | 누적합 | `baekjoon/prefix_sum` | 1 |
 | 다이나믹 프로그래밍 | `baekjoon/dynamic_programming` | 1 |
 | 임의 정밀도 | `baekjoon/arbitrary_precision` | 1 |
-| 재귀 (알고리즘 공부) | `algorithm/recursion/*` | 4 |
-| 정렬 알고리즘 학습 | `bjpublic/javarithms/sort` | 4 |
+| 재귀 | `algorithm/recursion/*` | 4 |
+| 정렬 알고리즘 | `bjpublic/javarithms/sort` | 4 |
 
-> 수학·구현 카테고리에 82개 중 67개(약 82%)가 몰려 있어요. 그래프/그리디/BFS·DFS 등 아직 없는 카테고리를 늘리는 쪽으로 다음 목표를 잡아보면 좋을 것 같습니다.
+수학·구현이 67개로 전체의 약 82%를 차지합니다. 그래프, 그리디, BFS/DFS는 아직 풀이가 없습니다.
 
 ### 💻구성
 - Java JDK 8 ( corretto 1.8 )
-- Server IntelliJ Local Machine -> Edit Configuration -> Build and run modify options -> Redirect Input & save console to output file
+- Zed (Java 확장, 언어 서버 jdtls)
 - Gitkraken
+- ~~IntelliJ IDEA~~
 - ~~Gradle~~
 - ~~SpringBoot2.x.x~~
 - ~~Swagger UI~~
-- Slack & Incoming WebHooks API (GitHub Actions로 자동 발송)
+- Slack Incoming Webhook + GitHub Actions
+- 카카오톡 "나에게 보내기" (Claude 예약 작업)
 
 ### 🗂️폴더 구조
-실제 저장소 구조를 기준으로 다시 정리했습니다. (기존 README의 `baekjoon/category/$_1` 표기는 실제 경로와 달라서 맞게 고쳤습니다.)
-
 ```
 src/com/test/coding/
 ├── baekjoon/                  # 백준 문제 풀이 (카테고리별 분류, $_문제번호.java)
@@ -61,23 +60,37 @@ src/com/test/coding/
 │   └── array/ · binarySearch/ · sequentialSearch/ · string/
 └── bjpublic/javarithms/sort/  # 정렬 알고리즘 학습 (Bubble/Insertion/Merge/Selection)
 ```
+- ![디렉터리-구조](images-2.png "현재-저장소의-디렉터리-구조")
 
 ### 👨‍💻구현 방식
 1. 백준 알고리즘에서 제시한 입력 데이터를 input.txt 입력
 2. 코딩
 3. 올바른 값이 output.txt 출력되었는지 확인
 
-### 🔔 자동 알림 (Slack)
-GitHub Actions로 두 가지 알림을 자동 발송합니다. (`.github/workflows/`)
+> 모든 파일이 `package com.test.coding.baekjoon.xxx;` 형태라서, 실행할 때는 `src`를 소스 루트로 두고 패키지까지 포함한 클래스명으로 실행해야 합니다.
+> ```bash
+> javac -d out -sourcepath src src/com/test/coding/baekjoon/math/\$_1000.java
+> java -cp out com.test.coding.baekjoon.math.\$_1000 < input.txt
+> ```
 
-| 워크플로우 | 주기 | 내용 |
+### 🔔 자동 알림
+풀이 현황을 정해진 시각에 나에게 알려줍니다.
+
+| 방식 | 주기 | 내용 |
 |---|---|---|
-| `daily-algorithm-alert.yml` | 월~금, KST 오후 8시 17분 | 어제 푼 문제 수 + 이번 주/이번 달 누적 |
-| `weekly-algorithm-alert.yml` | 매주 금요일, KST 오후 6시 17분 | 최근 6개월 누적 통계 |
+| Slack · `daily-algorithm-alert.yml` | 월~금, KST 20:17 | 어제 푼 문제 수 + 7일/30일 누적 |
+| Slack · `weekly-algorithm-alert.yml` | 금요일, KST 18:17 | 최근 6개월 누적 |
+| 카카오톡 · Claude 예약 작업 (시험 운영 중) | 월~금, KST 20:17 | daily와 같은 내용을 200자 이내 텍스트로 전송 |
 
-- 두 워크플로우 모두 `secrets.SLACK_WEBHOOKS_URL` (Incoming Webhook)로 메시지를 보냅니다. Slack 쪽에서 Webhook을 재발급했다면 저장소 Settings → Secrets and variables → Actions에서 값을 갱신해야 합니다.
-- **Actions 탭에서 `Run workflow` 버튼으로 수동 실행/테스트가 가능하도록 두 워크플로우에 `workflow_dispatch` 트리거를 추가했습니다.** 스케줄을 기다리지 않고 바로 알림이 오는지 확인할 수 있습니다.
-- GitHub은 저장소에 **60일 이상 커밋 활동이 없으면 예약(cron) 워크플로우를 자동으로 비활성화**합니다. 최근 커밋 이후 시간이 많이 지나서 알림이 끊긴 것이라면, 커밋을 새로 쌓는 것만으로는 다시 켜지지 않고 **Actions 탭 → 해당 워크플로우 → `Enable workflow` 버튼을 직접 눌러줘야** 합니다. 지금 알림이 안 오는 문제의 가장 유력한 원인으로 보입니다.
+**Slack 설정**
+- `.github/workflows/`의 GitHub Actions가 `secrets.SLACK_WEBHOOKS_URL`(Incoming Webhook)로 전송합니다.
+- 두 워크플로우 모두 Actions 탭의 `Run workflow` 버튼으로 수동 실행할 수 있습니다 (`workflow_dispatch`).
+- cron을 정각이 아닌 17분으로 둔 건 정각에 GitHub 스케줄이 몰려 실행이 지연되거나 누락되는 일을 피하려는 것입니다.
+
+**알림이 오지 않을 때**
+- 저장소에 60일 이상 커밋이 없으면 GitHub이 예약 워크플로우를 자동으로 끕니다. 커밋을 새로 올려도 다시 켜지지 않으니 Actions 탭에서 해당 워크플로우의 `Enable workflow`를 직접 눌러야 합니다.
+- Actions 실행 기록에 `The job was not acquired by Runner` 같은 오류가 있으면 GitHub 쪽 일시 장애입니다. `Re-run failed jobs`로 다시 실행합니다.
+- 수동 실행에서는 성공하는데 Slack에 안 오면 Webhook URL이 무효화됐을 수 있으니 Settings → Secrets and variables → Actions의 `SLACK_WEBHOOKS_URL`을 확인합니다.
 
 ### ⚠️주의사항
 - 문제를 대충 보지 않는다.
@@ -94,18 +107,6 @@ GitHub Actions로 두 가지 알림을 자동 발송합니다. (`.github/workflo
 - 다양한 접근방식을 생각한다. 너무 깊게도 얇게도 생각하지 않는다. 예상외에 답이 나올 수 있는 방법이 있다.
 
 ### 📋추가 예정
-- [X] ~~AWS EC2 인스턴스를 이용하여 Docker-compose 설치~~
-- [X] ~~Docker 컨테이너를 이용하고 App을 외부에서 접근이 가능하도록 구현~~
 - [X] 알고리즘 풀이 주간, 월간 통계・결산하여 알림 서비스
-- [ ] 그래프/그리디/BFS·DFS 카테고리 풀이 추가 (현재 수학·구현에 82% 편중)
-- [ ] `weekly-algorithm-alert.yml`의 cron 시간 주석(오후 8시)과 실제 실행 시각(오후 6시) 불일치 정리
 
 ![슬랙-코딩테스트-알고리즘-채널](images.png "슬랙-코딩테스트-알고리즘-채널")
-
----
-
-### 🔍 이번 점검에서 발견/수정한 이슈
-- **(수정) weekly 워크플로우 통계 오류**: `weekly-algorithm-alert.yml`의 checkout 단계에 `fetch-depth: 0`이 빠져 있었음. GitHub Actions 기본 checkout은 최신 커밋 1개만 가져오는 얕은 클론이라, `cal-months-algorithm-slove.sh`가 `git log --follow`로 파일별 최초 커밋일을 조회할 때 대부분 실패 → 6개월 누적 통계(`FIRST_COMMIT_COUNT`)가 실제보다 적게 집계됐을 가능성이 높음. `daily-algorithm-alert.yml`에는 이미 이 옵션이 있었는데 weekly에는 누락되어 있었음. → daily와 동일하게 추가함.
-- **(수정) 오래된 저장소 이름 링크**: 일간 Slack 메시지의 "깃허브 리포지토리 바로가기" 링크가 이전 저장소 이름인 `baekjoon-slove`를 가리키고 있었음. GitHub 리다이렉트 덕분에 지금 당장은 열리지만, 현재 이름인 `baekjoon-algorithm-slove`로 직접 가리키도록 고침.
-- **(참고, 미수정) weekly cron 주석 불일치**: 코드상 `cron: '0 9 * * 5'`는 KST 오후 6시에 실행되는데, 주석에는 "8 PM"이라고 적혀 있음. 의도한 시각이 6시인지 8시인지 몰라서 스케줄 자체는 건드리지 않음. 8시가 맞다면 `'0 11 * * 5'`로 바꾸면 됨.
-- **(참고) 알림이 안 갈 수 있는 또 다른 원인**: `SLACK_WEBHOOKS_URL` 시크릿 자체가 만료/삭제되었을 가능성도 있음. Slack Incoming Webhook은 앱을 워크스페이스에서 제거하거나 워크스페이스를 바꾸면 URL이 무효화됨. Actions 탭에서 `workflow_dispatch`로 수동 실행해보면 어느 쪽 문제인지(스케줄 비활성화 vs URL 만료) 바로 구분할 수 있음.

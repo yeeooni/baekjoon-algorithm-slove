@@ -62,8 +62,6 @@ src/com/test/coding/
 └── bjpublic/javarithms/sort/  # 정렬 알고리즘 학습 (Bubble/Insertion/Merge/Selection)
 ```
 
-- ![디렉터리-구조](images-2.png "현재-저장소의-디렉터리-구조")
-
 ### 👨‍💻구현 방식
 1. 백준 알고리즘에서 제시한 입력 데이터를 input.txt 입력
 2. 코딩
